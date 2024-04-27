@@ -7,15 +7,11 @@ import { CardInfoContext } from '../context/CardInfoContext';
 const MainPage = () => {
   const { cardInfo, changeCardInfo } = useContext(CardInfoContext);
 
-  const handleChangeCardInfo = (newCardInfo: CardInfo) => {
-    changeCardInfo(newCardInfo);
-  };
-
   return (
     <M.Container>
       <M.Main>
         <CardPreview {...cardInfo} />
-        <CardInfo changeCardInfo={handleChangeCardInfo} />
+        <CardInfo changeCardInfo={changeCardInfo} />
       </M.Main>
     </M.Container>
   );
