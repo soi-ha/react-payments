@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 interface CardInfoContextType {
   cardInfo: CardInfo;
-  changeCardInfo: (newCardInfo: CardInfo) => void;
+  changeCardInfo: (cardInfo: CardInfo) => void;
 }
 
 export const initialCardInfoContext: CardInfoContextType = {
