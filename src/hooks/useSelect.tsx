@@ -2,19 +2,10 @@ import { useState } from 'react';
 
 interface Props {
   inputLength: number;
-  maxLength: number;
-  regex: RegExp;
   errorText: string;
-  betweenMaxLength?: Boolean | null;
 }
 
-const useInput = ({
-  inputLength,
-  maxLength,
-  regex,
-  errorText,
-  betweenMaxLength,
-}: Props) => {
+const useSelect = ({ inputLength }: Props) => {
   const initializeInputFieldState = (length: number) => {
     return Array.from({ length }, (_, index) => ({
       value: '',
@@ -33,57 +24,18 @@ const useInput = ({
   );
 
   const handleValueChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLSelectElement>,
     index: number,
   ) => {
     const newValue = e.target.value;
-    const isFilled = newValue.length === maxLength;
-
-    if (newValue.length <= maxLength && !regex.test(newValue)) {
-      setInputState((prevState) => ({
-        ...prevState,
-        [index]: {
-          ...prevState[index],
-          value: newValue
-            .split('')
-            .filter((char) => regex.test(char))
-            .join(''),
-          hasError: true,
-          isFilled: isFilled,
-        },
-      }));
-      setErrorMessage(errorText);
-    } else if (newValue.length > maxLength) {
-      setInputState((prevState) => ({
-        ...prevState,
-        [index]: {
-          ...prevState[index],
-          value: newValue.slice(0, maxLength),
-          hasError: false,
-          isFilled: isFilled,
-        },
-      }));
-    } else if (betweenMaxLength && newValue.length > 0) {
-      setInputState((prevState) => ({
-        ...prevState,
-        [index]: {
-          ...prevState[index],
-          value: newValue,
-          hasError: false,
-          isFilled: true,
-        },
-      }));
-    } else {
-      setInputState((prevState) => ({
-        ...prevState,
-        [index]: {
-          ...prevState[index],
-          value: newValue,
-          hasError: false,
-          isFilled: isFilled,
-        },
-      }));
-    }
+    setInputState((prevState) => ({
+      ...prevState,
+      [index]: {
+        ...prevState[index],
+        value: newValue,
+        isFilled: true,
+      },
+    }));
   };
 
   const setFocus = (index: number) => {
@@ -128,4 +80,4 @@ const useInput = ({
   };
 };
 
-export default useInput;
+export default useSelect;
