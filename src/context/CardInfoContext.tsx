@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 interface CardInfoContextType {
   cardInfo: CardInfo;
-  changeCardInfo: (cardInfo: Partial<CardInfo>) => void;
+  changeCardInfo: (newCardInfo: CardInfo) => void;
 }
 
 export const initialCardInfoContext: CardInfoContextType = {
