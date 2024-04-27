@@ -8,7 +8,7 @@ export const CardInfoProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [cardInfo, setCardInfo] = useState<CardInfo>(
-    initialCardInfoContext.cardInfo,
+    initialCardInfoContext.cardInfo as CardInfo,
   );
 
   const changeCardInfo = (newCardInfo: CardInfo) => {
