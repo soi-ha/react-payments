@@ -1,18 +1,15 @@
 import { useMemo, useState } from 'react';
-import { CardInfoContext } from '../context/CardInfoContext';
+import {
+  CardInfoContext,
+  initialCardInfoContext,
+} from '../context/CardInfoContext';
 
 export const CardInfoProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [cardInfo, setCardInfo] = useState<CardInfo>({
-    cardCompany: null,
-    cardNumber: ['', '', '', ''],
-    expirationMonth: '',
-    expirationYear: '',
-    name: '',
-    cvc: '',
-    password: '',
-  });
+  const [cardInfo, setCardInfo] = useState<CardInfo>(
+    initialCardInfoContext.cardInfo as CardInfo,
+  );
 
   const changeCardInfo = (newCardInfo: CardInfo) => {
     setCardInfo(newCardInfo);
