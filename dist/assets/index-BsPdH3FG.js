@@ -298,4 +298,4 @@ Error generating stack: `+o.message+`
   font-size: ${A.FONT_SIZE.default};
   font-weight: ${A.BOLD.default};
 }
-`,rw=Gv([{path:"/",Component:Z1},{path:"/register-confirm",Component:tw}]);La.createRoot(document.getElementById("root")).render(P.jsxs(Pt.StrictMode,{children:[P.jsx(nw,{}),P.jsx(oy,{children:P.jsx(ry,{router:rw})})]}));
+`,rw=Gv([{path:"/",Component:Z1},{path:"/register-confirm",Component:tw}],{basename:"/"});La.createRoot(document.getElementById("root")).render(P.jsxs(Pt.StrictMode,{children:[P.jsx(nw,{}),P.jsx(oy,{children:P.jsx(ry,{router:rw})})]}));
